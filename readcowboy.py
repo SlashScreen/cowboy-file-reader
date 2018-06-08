@@ -12,8 +12,8 @@ def read(path):
         filetype = file[0] #sammy also wrote these 5
         lines = file[1:]
 
-    print(filetype)
-    print(lines)
+    #print(filetype)
+    #print(lines)
         
     data = {}
 
@@ -33,8 +33,11 @@ def read(path):
                       line[i] = float(line[i])
             data[line[0]] = line[1] #by Sammy
     if filetype == 'text':
-        data = lines
-    print(data)
+        for i in range(len(lines)):
+            line = lines[i].split('\n')
+            #print (line)
+            data[i] = lines[i] #by Sammy
+    #print(data)
     return data
 
 def write(name, doctype, data):
@@ -45,10 +48,13 @@ def write(name, doctype, data):
     keys = list(data.keys())
     values = list(data.values())
     for i in range(len(data)):
-        out = ''.join('{}:{}'.format(keys[i],values[i]))
+        if doctype != 'text':
+            out = ''.join('{}:{}'.format(keys[i],values[i]))
+        else:
+                       out = ''.join('{}'.format(values[i]))
         newFile.write(out)
         newFile.write('\n')
-    print("Ding!")
+    #print("Ding!")
 
 
 #TODO
