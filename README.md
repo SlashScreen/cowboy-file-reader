@@ -7,9 +7,9 @@ readcowboy.py is the module itself, and doesn't do anything on its own
 
 # Module Documentation
 
-read(path)
-reads the file specified at *path*. *The .cowboy extension is added at the end automatically.*
-write(name,doctype,data)
+`read(path)`
+reads the file specified at *path*. **The .cowboy extension is added at the end automatically.**
+`write(name,doctype,data)`
 writes to a new file, and creates one if there isn't one already there. 
 *name* is the filename (again, automatically adds extension)
 *doctype* is the document type. Refer to style guide.
@@ -18,10 +18,14 @@ writes to a new file, and creates one if there isn't one already there.
 # .cowboy Style Guide
 .cowboy files aren't super forgiving. it goes as follows:
 
+`
 document_type
-dataA:1
-dataB:Ralph
-dataC:5.0
+
+dataA:1 
+
+dataB:Ralph 
+
+dataC:5.0 `
 
 document_type: all lowercase, can be 1 of several types that are more or less handled differently: "testdoc", "savegame", "text"
 data: this reads sorta like JSON, in that instead of an = there is a :, because it looks cooler. there are syntax requirements, however, that are listed below.
