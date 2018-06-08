@@ -24,7 +24,7 @@ def read(path):
         except ValueError:
             return False
 
-    if filetype == 'testdoc' or filetype == 'savegame': #handling for testdoc type
+    if filetype == 'testdoc' or filetype == 'savegame' or filetype == 'datasheet' or filetype == 'config':
         for line in lines:
             line = line.split(':')
             for i in range(2):
