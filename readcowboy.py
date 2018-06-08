@@ -1,5 +1,11 @@
 from pathlib import Path
 
+def sjoin(list):
+    string = ''
+    for i in range(len(list)):
+        string = string.join(list[i])
+    return string
+
 def read(path):
     path = Path(path + '.cowboy')
 
@@ -12,6 +18,7 @@ def read(path):
         filetype = file[0] #sammy also wrote these 5
         lines = file[1:]
 
+    
     #print(filetype)
     #print(lines)
         
@@ -36,7 +43,36 @@ def read(path):
         for i in range(len(lines)):
             line = lines[i].split('\n')
             #print (line)
-            data[i] = lines[i] #by Sammy
+            data[i] = lines[i] 
+    if filetype == 'asciidata':
+        for i in range(len(lines)):
+            line = lines[i].split('\n')
+            entrycode = ''
+            entryline = 0
+            exitline = 0
+            art = []
+            if "###" in lines[i]:
+                entrycode = str(lines[i]).replace('###','')
+                entryline = i
+                art.clear()
+                #while not lines[i] == 'end':
+                
+            if not lines[i]=='end':
+                print(lines[i])
+                art.append(lines[i])#.join("\n")
+                #print(art[i])
+            elif lines[i]=='end':
+                exitline = i
+                #artData = list(art.values())
+                print(art)
+                #print(lines[entryline:exitline])
+                data[entrycode] = art#lines[entryline:exitline]#str(entryline) + str(exitline)
+ 
+        
+        
+        #print(data)
+            #print (line)
+            #data[i] = lines[i] 
     #print(data)
     return data
 
@@ -48,15 +84,18 @@ def write(name, doctype, data):
     keys = list(data.keys())
     values = list(data.values())
     for i in range(len(data)):
-        if doctype != 'text':
-            out = ''.join('{}:{}'.format(keys[i],values[i]))
+        if doctype == 'text':
+            out = ''.join('{}'.format(values[i]))
+        elif doctype == 'asciidata':
+            newFile.write('{}'.format(keys[i]))
+            newFile.write('\n')
+            out = ''.join('{}\n'.format(str(values[i]))) #keys[i],
         else:
-                       out = ''.join('{}'.format(values[i]))
+            out = ''.join('{}:{}'.format(keys[i],values[i]))
         newFile.write(out)
         newFile.write('\n')
     #print("Ding!")
 
 
 #TODO
-#Make type handling for savegame, config
 #Figure out how to run this from lua, with arguments, and be able to recieve output. not sure how to make diff. file types cooperate?
