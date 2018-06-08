@@ -28,8 +28,10 @@ dataB:Ralph
 dataC:5.0 
 ```
 
-document_type: all lowercase, can be 1 of several types that are more or less handled differently: "testdoc", "savegame", "text"
-data: this reads sorta like JSON, in that instead of an = there is a :, because it looks cooler. there are syntax requirements, however, that are listed below.
+`document_type`: all lowercase, can be 1 of several types that are more or less handled differently: "testdoc", "savegame", "text"
+
+`data`: this reads sorta like JSON, in that instead of an = there is a :, because it looks cooler. there are syntax requirements, however, that are listed below.
+
 1. Each data point must be on a new line (no minification, sorry!)
 2. Data points can be as far away from eachother as you like, as long as they are on the same line. Ex. "a    :      5.3"
 3. Data point can only equal 1 value. you can't do "a:3:6" because it will ignore everything past the second colon.
