@@ -5,7 +5,7 @@ The two .cowboy files are to test reading and writing
 cowboytestdemo.py is a demonstration diece on how to use the module
 readcowboy.py is the module itself, and doesn't do anything on its own
 
-#Module Documentation
+# Module Documentation
 
 read(path)
 reads the file specified at *path*. *The .cowboy extension is added at the end automatically.*
@@ -15,7 +15,7 @@ writes to a new file, and creates one if there isn't one already there.
 *doctype* is the document type. Refer to style guide.
 *data* is an array or whatever of data that can be put into text form.
 
-#.cowboy Style Guide
+# .cowboy Style Guide
 .cowboy files aren't super forgiving. it goes as follows:
 
 document_type
