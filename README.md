@@ -2,7 +2,7 @@
 This is the read/writer for my filetype, .cowboy, I made as a multi-purpose sort of file I would use for config, dialog, savegame, etc.
 The two .cowboy files are to test reading and writing
 
-cowboytestdemo.py is a demonstration diece on how to use the module
+cowboytestdemo.py is a demonstration piece on how to use the module
 readcowboy.py is the module itself, and doesn't do anything on its own
 
 # Module Documentation
@@ -36,3 +36,5 @@ dataC:5.0
 2. Data points can be as far away from eachother as you like, as long as they are on the same line. Ex. "a    :      5.3"
 3. Data point can only equal 1 value. you can't do "a:3:6" because it will ignore everything past the second colon.
 4. Numbers are always detected and converted automatically to floats. Ex. "a:3" will be converted "a:3.0" either in memory when the file is read or in the file itself if it is writing.
+
+text: all you need to do for this is have 'text' as the first line of your document, and then put in anything afterwards
