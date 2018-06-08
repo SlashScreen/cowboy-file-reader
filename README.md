@@ -18,14 +18,15 @@ writes to a new file, and creates one if there isn't one already there.
 # .cowboy Style Guide
 .cowboy files aren't super forgiving. it goes as follows:
 
-`
+```python
 document_type
 
 dataA:1 
 
 dataB:Ralph 
 
-dataC:5.0 `
+dataC:5.0 
+```
 
 document_type: all lowercase, can be 1 of several types that are more or less handled differently: "testdoc", "savegame", "text"
 data: this reads sorta like JSON, in that instead of an = there is a :, because it looks cooler. there are syntax requirements, however, that are listed below.
