@@ -45,29 +45,24 @@ def read(path):
             #print (line)
             data[i] = lines[i] 
     if filetype == 'asciidata':
+        art = []
         for i in range(len(lines)):
-            line = lines[i].split('\n')
-            entrycode = ''
-            entryline = 0
-            exitline = 0
-            art = []
-            if "###" in lines[i]:
-                entrycode = str(lines[i]).replace('###','')
-                entryline = i
-                art.clear()
-                #while not lines[i] == 'end':
-                
-            if not lines[i]=='end':
-                print(lines[i])
-                art.append(lines[i])#.join("\n")
-                #print(art[i])
-            elif lines[i]=='end':
-                exitline = i
-                #artData = list(art.values())
-                print(art)
-                #print(lines[entryline:exitline])
-                data[entrycode] = art#lines[entryline:exitline]#str(entryline) + str(exitline)
- 
+            line = str(lines[i].split('\n'))
+            line = line[:-2]
+            line = line[2:]
+ #           line = str(line)
+            print (line)
+            art.append(line)
+            slicestart = 0
+            sliceend = 0
+            if "%start%" in line:
+                slicestart = i
+            if "%end%" in line:
+                sliceend = i
+                data[i] = lines[slicestart:sliceend]
+                print(slicestart, sliceend)
+            #print (line)
+  
         
         
         #print(data)
@@ -86,10 +81,6 @@ def write(name, doctype, data):
     for i in range(len(data)):
         if doctype == 'text':
             out = ''.join('{}'.format(values[i]))
-        elif doctype == 'asciidata':
-            newFile.write('{}'.format(keys[i]))
-            newFile.write('\n')
-            out = ''.join('{}\n'.format(str(values[i]))) #keys[i],
         else:
             out = ''.join('{}:{}'.format(keys[i],values[i]))
         newFile.write(out)
